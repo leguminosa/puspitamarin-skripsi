@@ -14,7 +14,7 @@ $(document).ready(function() {
             success: function(data) {
                 // console.log(data);
                 if(data.Status == 0) {
-                    showAlertSuccess("Suksess", ".modal-footer", 0);
+                    showAlertSuccess(".modal-footer", 0);
                     resetForm();
                     refreshTable();
                 } else {

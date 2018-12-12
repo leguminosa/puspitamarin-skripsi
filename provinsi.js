@@ -21,7 +21,7 @@ $(document).ready(function() {
             dataType: 'JSON'
         }).done(function(data) {
             if(data.Status == 0) {
-                showAlertSuccess("Suksess", ".modal-footer", 0);
+                showAlertSuccess(".modal-footer", 0);
                 resetForm();
                 refreshTable();
             }

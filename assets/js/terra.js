@@ -95,7 +95,7 @@ function remDataTable(tableName) {
     $('#' + tableName + ' .looptemplate').remove();
     $('#' + tableName).after(isi);
 }
-function showAlertSuccess(msg, id, flag) {
+function showAlertSuccess(id, flag, msg="Input Berhasil") {
     $(".alert").remove();
     // $('#myModal').modal('hide');
 
