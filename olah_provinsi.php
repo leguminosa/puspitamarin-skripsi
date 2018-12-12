@@ -29,6 +29,10 @@
                 $query = "UPDATE provinsi SET nama='$nama', endemik='$endemik' WHERE id='$id'";
             }
             mysqli_query($connection, $query);
+        } else if(isset($_GET["delete"])) {
+            $id = $_GET["delete"];
+            $query = "DELETE FROM provinsi WHERE id='$id'";
+            mysqli_query($connection, $query);
         }
         $data = json_encode($data, true);
         print_r($data);

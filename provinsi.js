@@ -53,6 +53,13 @@ function refreshTable() {
             $('.action', temp).append("<br>");
             body.append(temp);
 
+            var span_delete = $('<span></span>').addClass("fa fa-times").addClass("delete").text(" Delete");
+            var a_delete = $('<a></a>').addClass("clickable");
+            a_delete.append(span_delete);
+            $('.action', temp).append(a_delete);
+            $('.action', temp).append("<br>");
+            body.append(temp);
+
             $('.action', temp).click(function(e) {
                 var attrID = $(this).attr("attr-id");
                 var target = $(e.target);
@@ -81,6 +88,19 @@ function refreshTable() {
                             }
                         });
                     });
+                } else if(target.is('.delete')) {
+                    if(confirm("Yakin ingin menghapus data?")) {
+                        $.ajax({
+                            type: 'GET',
+                            url: 'olah_provinsi.php?delete=' + attrID,
+                            dataType: 'JSON'
+                        }).done(function(data) {
+                            if(data.Status == 0) {
+                                showAlertSuccess(".modal-footer", 0, "Data Telah Terhapus");
+                                refreshTable();
+                            }
+                        });
+                    }
                 }
             });
         }
