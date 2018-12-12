@@ -34,13 +34,6 @@
                             <button class="btn btn-lg btn-primary" type="submit" name="submit">Simpan</button>
                         </div>
                     </form>
-
-                    <!-- <input type="hidden" id="diagnosa_id" name="diagnosa">
-                    <input type="radio" value="1" class="clickable" name="hasil" checked><span class="clickable"> Positif </span>
-                    <input type="radio" value="0" class="clickable" name="hasil"><span class="clickable"> Negatif </span>
-                    <div style="padding:20px 0px;margin:15px 0px;">
-                        <button class="btn btn-primary">Simpan Hasil Tes</button>
-                    </div> -->
                 </div>
             </div>
             <div class="wrapper">
@@ -49,14 +42,14 @@
                         <div class="form-group">
                             <label class="col-lg-4 col-md-4 col-sm-4 col-xs-4 control-label">Nama</label>
                             <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
-                                <input type="text" class="form-control" class="nama" name="nama" placeholder="Nama Provinsi" required="" autofocus="" />
+                                <input type="text" class="form-control tb" class="nama" name="nama" placeholder="Nama Provinsi" required="" autofocus="" />
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-lg-4 col-md-4 col-sm-4 col-xs-4 control-label">Endemik</label>
                             <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
                                 <div class="switch">
-                                    <input type="checkbox" class="endemik" name="endemik" value="0">
+                                    <input type="checkbox" class="endemik" name="endemik">
                                     <span class="slider round"></span>
                                 </div>
                             </div>

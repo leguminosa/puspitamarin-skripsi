@@ -78,10 +78,10 @@ function refreshTable() {
                                 dataType: 'JSON'
                             }).done(function(data) {
                                 if(data.Status == 0) {
+                                    alert("Update berhasil");
                                     modal.css('display', 'none');
                                     btn.unbind();
                                     refreshTable();
-                                    // console.log(data);
                                 }
                             });
                         });

@@ -11,22 +11,27 @@ $(document).ready(function() {
         }
     });
     refreshTable();
-    $('#action').submit(function(e) { // add
+    $('#action').submit(function(e) {
         e.preventDefault();
         var ser = aerialize('action');
-        console.log(ser);
-        // $.ajax({
-        //     type: 'POST',
-        //     url: 'olah_data-latih.php',
-        //     data: {ser},
-        //     dataType: 'JSON'
-        // });
+        $.ajax({
+            type: 'POST',
+            url: 'olah_provinsi.php?write=new',
+            data: {ser},
+            dataType: 'JSON'
+        }).done(function(data) {
+            if(data.Status == 0) {
+                showAlertSuccess("Suksess", ".modal-footer", 0);
+                resetForm();
+                refreshTable();
+            }
+        });
     });
 });
 function refreshTable() {
     $.ajax({
         type: 'GET',
-        url: 'olah_provinsi.php?get=all',
+        url: 'olah_provinsi.php?read=true',
         dataType: 'JSON'
     }).done(function(data) {
         remDataTable('maintable');
@@ -64,11 +69,16 @@ function refreshTable() {
                         var ser = aerialize('action_edit');
                         $.ajax({
                             type: 'POST',
-                            url: 'olah_provinsi.php?edit=' + attrID,
+                            url: 'olah_provinsi.php?write=' + attrID,
                             data: {ser},
                             dataType: 'JSON'
                         }).done(function(data) {
-                            console.log(data);
+                            if(data.Status == 0) {
+                                alert("Update berhasil");
+                                modal.css('display', 'none');
+                                $('#action_edit').unbind();
+                                refreshTable();
+                            }
                         });
                     });
                 }

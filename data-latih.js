@@ -24,12 +24,6 @@ $(document).ready(function() {
         });
     });
 });
-function resetForm() {
-    $('.def_radio').prop('checked', 'checked');
-    $('.tb').val('').trigger('change');
-    $('[type=checkbox]').prop('checked', false);
-    $('select.def option.def_select').attr('selected', 'selected');
-}
 function refreshTable() {
     $.ajax({
         type: 'GET',
