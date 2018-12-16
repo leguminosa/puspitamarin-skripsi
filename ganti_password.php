@@ -18,7 +18,7 @@
             // print_r($simpan);
             if($pw != $cek) {
                 $_SESSION['afterInsert'] = 'cek';
-                header('location:ganti-password.php');
+                header('location:ganti_password.php');
             } else {
                 $select = "SELECT COUNT(*) AS 'password_lama_benar' FROM pengguna WHERE id='$id' AND password='$old'";
                 $query = mysqli_query($connection, $select);
@@ -29,7 +29,7 @@
                 }
                 if($benar == 0) {
                     $_SESSION['afterInsert'] = 'old';
-                    header('location:ganti-password.php');
+                    header('location:ganti_password.php');
                 } else {
                     $update = "UPDATE pengguna SET password='$pw' WHERE id='$id'";
                     mysqli_query($connection, $update);
@@ -75,7 +75,7 @@ EOD;
 <?php   //else if($afterInsert == 'cek') { echo($div_cek); } ?>
 <?php   //else if($afterInsert == 'old') { echo($div_old); } ?>
             <div class="wrapper">
-                <form class="form-horizontal" id="action" action="ganti-password.php" method="POST" enctype="multipart/form-data">
+                <form class="form-horizontal" id="action" action="ganti_password.php" method="POST" enctype="multipart/form-data">
                     <div class="modal-body">
                         <div class="form-group">
                             <label class="col-lg-4 col-md-4 col-sm-4 col-xs-4 control-label">Password Lama</label>

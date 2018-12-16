@@ -2,7 +2,7 @@ function NaiveBayes(metaData, gejala, latih) {
 /*
  *  metaData = {
  *      header: (wajib) apa yang akan dianalisa dgn Naive Bayes (cth: Malaria)
- *      result: (wajib) property target dari data-latih (cth: latih.hasil)
+ *      result: (wajib) property target dari data_latih (cth: latih.hasil)
  *      elm_body: hasilnya mw ditaro dimana (default:#result)
  *      elm_row: elemen per row nya (default:#row)
  *      finalVerb: modifier trhdp tujuan (default:terkena)

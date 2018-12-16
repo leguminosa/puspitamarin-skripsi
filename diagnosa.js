@@ -58,7 +58,7 @@ $(document).ready(function() {
                         dataType: 'JSON'
                     }).done(function(data) {
                         if(data.Status == 0) {
-                            window.location.href = "hasil-diagnosa.php?id=" + data.ID;
+                            window.location.href = "hasil_diagnosa.php?id=" + data.ID;
                         }
                     });
                 }

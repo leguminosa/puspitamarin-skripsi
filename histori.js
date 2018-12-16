@@ -16,7 +16,7 @@ $(document).ready(function() {
 function refreshTable() {
     $.ajax({
         type: 'GET',
-        url: 'olah_histori.php?get=all',
+        url: 'olah_histori.php?read=user',
         dataType: 'JSON',
         success: function(data) {
             remDataTable('maintable');
@@ -40,7 +40,7 @@ function refreshTable() {
                 hsl = hsl.replace('0', 'Negatif');
                 $('.hasil', temp).text(hsl);
                 $('.action', temp).attr("attr-id", item.id);
-                //action untuk lihat detail (ke arah hasil-diagnosa.php)
+                //action untuk lihat detail (ke arah hasil_diagnosa.php)
                 var span_detail = $('<span></span>').addClass("fa fa-file-text-o").addClass("detail").text(" Detail");
                 var a_detail = $('<a></a>').addClass("clickable");
                 a_detail.append(span_detail);
@@ -59,7 +59,7 @@ function refreshTable() {
                     var attrID = $(this).attr("attr-id");
                     var target = $(e.target);
                     if(target.is('.detail')) {
-                        window.location.href = 'hasil-diagnosa.php?id='+attrID;
+                        window.location.href = 'hasil_diagnosa.php?id='+attrID;
                     } else if(target.is('.hasil_tes')) {
                         var modal = $('#myModal');
                         // $('p.identity', modal).text("Welcome, " + attrID);
@@ -89,11 +89,11 @@ function refreshTable() {
                 });
             }
             $('#maintable').DataTable({
-                // columnDefs: [{
-                //     orderable : false,
-                //     targets : [-1, 0]
-                // }],
-                order: [[1, "asc"]]
+                columnDefs: [{
+                    orderable : false,
+                    targets : [-1, 0]
+                }],
+                order: [[0, "desc"]]
             });
         }
     });

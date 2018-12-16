@@ -26,6 +26,7 @@ $(document).ready(function() {
                 wktu = moment(wktu, 'YYYY-MM-DD HH:mm');
                 wktu = wktu.format("dddd, MMMM Do YYYY HH:mm");
                 $('#timestamps').text(wktu);
+                $('#nama').text(header.nama);
                 $('#usia').text(header.usia);
                 $('#domisili').text(header.domisili);
                 $('#jk').text(header.jk == 'P' ? 'Perempuan' : 'Laki-laki');

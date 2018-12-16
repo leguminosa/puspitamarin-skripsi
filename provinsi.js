@@ -24,6 +24,8 @@ $(document).ready(function() {
                 showAlertSuccess(".modal-footer", 0);
                 resetForm();
                 refreshTable();
+            } else {
+                alert("Terjadi galat pada sistem. Error Code = " + data.Status);
             }
         });
     });
@@ -51,7 +53,6 @@ function refreshTable() {
             a_edit.append(span_edit);
             $('.action', temp).append(a_edit);
             $('.action', temp).append("<br>");
-            body.append(temp);
 
             var span_delete = $('<span></span>').addClass("fa fa-times").addClass("delete").text(" Delete");
             var a_delete = $('<a></a>').addClass("clickable");

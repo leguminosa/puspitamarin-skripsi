@@ -28,6 +28,7 @@ $(document).ready(function() {
             var cls = $(this).attr('class');
             cls = cls.replace('tablinks', '').trim();
             openCity(e, cls);
+            // if(cls == 'home') window.location.href = 'index.php';
         }
     });
 });
@@ -46,7 +47,7 @@ function dropdownsOpenClose(parent, elm, open=true) {
         parent.find('i').addClass('fa-caret-down');
     }
 }
-function openCity(evt, cityName) {
+function openCity(evt, cityName, other=false) {
     // Declare all variables
     var i, tabcontent, tablinks;
 
@@ -64,7 +65,11 @@ function openCity(evt, cityName) {
 
     // Show the current tab, and add an "active" class to the button that opened the tab
     document.getElementById(cityName).style.display = "block";
-    evt.currentTarget.className += " active";
+    if(!other) {
+        evt.currentTarget.className += " active";
+    } else {
+        document.getElementsByClassName(other)[0].className += " active";
+    }
 }
 function aerialize(elm) {
 // furthermore objectifies serializeArray()

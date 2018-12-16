@@ -2,10 +2,12 @@
 <?php   include('includes/session.php'); ?>
 <?php   include('olah.php'); ?>
 <?php
-        if(isset($_GET['get'])) {
-            $id = $_GET['get'];
-            if($id == 'all') $id = $sess['id'];
-            $select = "SELECT d.*, p.nama AS 'domisili_nama' FROM diagnosa d, provinsi p WHERE d.domisili = p.id AND d.pengguna = '$id'";
+        if(isset($_GET['read'])) {
+            $select = "SELECT d.*, p.nama, v.nama AS 'domisili_nama' FROM diagnosa d JOIN pengguna p ON d.pengguna = p.id JOIN provinsi v ON d.domisili = v.id";
+            if($_GET['read'] == 'user') {
+                $id = $sess['id'];
+                $select .= " AND d.pengguna = '$id'";
+            }
             $get = mysqli_query($connection, $select);
             $result = array();
             if(mysqli_num_rows($get) > 0) {
@@ -13,6 +15,7 @@
                     $content = array();
                     $content['id'] = $row['id'];
                     $content['waktu'] = $row['waktu'];
+                    $content['nama'] = $row['nama'];
                     $content['usia'] = $row['usia'];
                     $content['domisili'] = $row['domisili_nama'];
                     $content['hasil_diagnosa'] = $row['hasil_diagnosa'];

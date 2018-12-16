@@ -58,7 +58,7 @@
                         <li><a href="histori.php">Histori</a></li>
 <?php       } else if($sess['role'] == 'admin') { ?>
                         <li><a href="provinsi.php">Provinsi</a></li>
-                        <li><a href="data-latih.php">Data Latih</a></li>
+                        <li><a href="data_latih.php">Data Latih</a></li>
 <?php       } ?>
 <?php   } ?>
                     </ul>
@@ -71,7 +71,7 @@
                                 <li><a href="<?php echo BASE_URI; ?>profil.php">
                                     <span class="fa fa-user m-r-xs"></span> Profil
                                 </a></li>
-                                <li><a href="<?php echo BASE_URI; ?>ganti-password.php">
+                                <li><a href="<?php echo BASE_URI; ?>ganti_password.php">
                                     <span class="fa fa-lock m-r-xs"></span> Ganti <i>password</i>
                                 </a></li>
                                 <li><a href="<?php echo BASE_URI; ?>logout.php">

@@ -9,4 +9,8 @@
             if(!isset($post)) return 0;
             else return (int)$post;
         }
+        function getValueBoolean($post) {
+            if(!isset($post)) return 0;
+            else return 1;
+        }
 ?>

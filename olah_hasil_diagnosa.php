@@ -6,7 +6,7 @@
             // print_r($id);
             $header =
                 "SELECT d.id AS 'id', d.waktu AS 'waktu', d.pengguna AS 'nama_id', p.nama AS 'nama', p.jenis_kelamin AS 'jk', d.usia AS 'usia', d.domisili AS 'domisili_id', t.nama AS 'domisili',
-                        d.malaise, d.sakit_kepala, d.batuk, d.diare, d.nyeri_otot, d.mual, d.menggigil, d.endemik, d.demam, d.hasil_diagnosa
+                        d.malaise, d.sakit_kepala, d.batuk, d.diare, d.nyeri_otot, d.mual, d.menggigil, d.endemik, d.demam, d.hasil_diagnosa, d.hasil
                  FROM   diagnosa d, pengguna p, provinsi t
                  WHERE  d.pengguna = p.id AND d.domisili = t.id AND d.id = '$id'";
             $detail = "SELECT t.atribut, t.value FROM diagnosa d, diagnosa_detail t WHERE d.id = t.diagnosa AND d.id = '$id'";
