@@ -37,9 +37,14 @@ $(document).ready(function() {
         } else {
             $.ajax({
                 type: 'POST',
-                url: 'daftar.php',
+                url: 'olah_daftar.php',
                 data: {ser},
                 dataType: 'JSON'
+            }).done(function(data) {
+                if(data.Status == 0) {
+                    alert('Registrasi berhasil');
+                    window.location.href = 'login.php';
+                }
             });
         }
     });

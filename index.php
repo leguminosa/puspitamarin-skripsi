@@ -23,7 +23,7 @@
                 array_push($waiting, $temp);
             }
         }
-        $pengunjung_q = "SELECT COUNT(DISTINCT(pengguna)) AS 'pengguna', COUNT(*) AS 'diagnosa' FROM diagnosa d JOIN pengguna p ON d.pengguna = p.id JOIN provinsi v ON d.domisili = v.id WHERE hasil IS NOT NULL AND ref IS NOT NULL AND waktu > NOW() - INTERVAL 7 DAY";
+        $pengunjung_q = "SELECT COUNT(DISTINCT(pengguna)) AS 'pengguna', COUNT(*) AS 'diagnosa' FROM diagnosa d JOIN pengguna p ON d.pengguna = p.id JOIN provinsi v ON d.domisili = v.id WHERE waktu > NOW() - INTERVAL 7 DAY";
         $q2 = mysqli_query($connection, $pengunjung_q);
         $pengunjung = 0; $diagnosa = 0;
         if(mysqli_num_rows($q2) > 0) {
