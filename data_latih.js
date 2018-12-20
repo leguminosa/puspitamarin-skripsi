@@ -144,7 +144,7 @@ function refreshTable() {
                 //     orderable : false,
                 //     targets : [-1, 0]
                 // }],
-                order: [[1, "asc"]]
+                order: [[0, "asc"]]
             });
         }
     });

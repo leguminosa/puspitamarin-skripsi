@@ -284,7 +284,7 @@
                 <table class="table table-hover" id="maintable" border="0" style="display:table; width:100%;">
                     <thead>
                         <tr class="info">
-                            <!-- <td>No</td> -->
+                            <td>No</td>
                             <td>Kelamin</td>
                             <td>Usia</td>
                             <td>Domisili</td>
@@ -303,7 +303,7 @@
                     </thead>
                     <tbody id="body">
                         <tr id="row" class="looptemplate danger">
-                            <!-- <td class="no"></td> -->
+                            <td class="no"></td>
                             <td class="jk"></td>
                             <td class="usia"></td>
                             <td class="domisili"></td>

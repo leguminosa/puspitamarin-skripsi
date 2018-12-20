@@ -44,6 +44,10 @@ $(document).ready(function() {
                 if(data.Status == 0) {
                     alert('Registrasi berhasil');
                     window.location.href = 'login.php';
+                } else if(data.Status == 1) {
+                    alert('Ada galat tidak diketahui.');
+                } else if(data.Status == 2) {
+                    alert('Username Anda sudah digunakan. Pilih Username yang lain.');
                 }
             });
         }

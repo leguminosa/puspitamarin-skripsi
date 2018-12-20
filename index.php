@@ -44,10 +44,10 @@
 <?php   if($sess && $sess['role'] == 'admin') { ?>
                 <button class="tablinks diagnosa">Hasil Diagnosa Pengguna</button>
 <?php   } else { ?>
-                <button class="tablinks tab2">Other(2)</button>
+                <button class="tablinks info_dasar">Malaria</button>
 <?php   } ?>
-                <button class="tablinks tab3">Other(3)</button>
-                <button class="tablinks tab4">Other(4)</button>
+                <button class="tablinks endemik">Daerah Endemik</button>
+                <button class="tablinks about">About</button>
             </div>
 
             <!-- Tab content -->
@@ -64,10 +64,18 @@
                 <p>Tidak ada pemberitahuan</p>
 <?php       } ?>
                 <h3>Pengunjung</h3>
-                <p>Terdapat <?php echo $diagnosa; ?> diagnosa dari total <?php echo $pengunjung; ?> pengunjung yang terjadi dalam satu minggu terakhir.</p>
+                <p>
+                    Terdapat <?php echo $diagnosa; ?> diagnosa dari total <?php echo $pengunjung; ?> pengunjung yang terjadi dalam satu minggu terakhir.
+                    <a href="laporan_pengunjung.php">Lihat disini</a>
+                </p>
+<?php   } else if($sess && $sess['role'] == 'user') { ?>
+                <h3>Selamat datang</h3>
+                <p>Selamat datang di PUSPITAMARIN. Anda bisa mengecek apakah anda memiliki kemungkinan terjangkit malaria.</p>
+                <p>Ingin melakukan tes? Klik menu Diagnosa pada menu di atas.</p>
 <?php   } else { ?>
-                <h3>London</h3>
-                <p>London is the capital city of England.</p>
+                <h3>Selamat datang</h3>
+                <p>Selamat datang di PUSPITAMARIN. Anda bisa mengecek apakah anda memiliki kemungkinan terjangkit malaria.</p>
+                <p>Belum punya akun? <a href="daftar.php">Daftar disini</a></p>
 <?php   } ?>
             </div>
 
@@ -229,20 +237,57 @@
                 </div>
             </div>
 <?php  } else { ?>
-            <div id="tab2" class="tabcontent">
-                <h3>Paris</h3>
-                <p>Paris is the capital of French.</p>
+            <div id="info_dasar" class="tabcontent">
+                <h3>Malaria</h3>
+                <p>
+                    Malaria merupakan penyakit yang banyak terjadi di daerah tropis maupun subtropis.
+                </p>
             </div>
 <?php  } ?>
 
-            <div id="tab3" class="tabcontent">
-                <h3>Tokyo</h3>
-                <p>Tokyo is the capital of Japan.</p>
+<?php
+        $get_endemik = "SELECT * FROM provinsi WHERE endemik = 1 ORDER BY id DESC LIMIT 10";
+        $query_endemik = mysqli_query($connection, $get_endemik);
+?>
+            <div id="endemik" class="tabcontent">
+                <h3>Daerah Endemik Malaria</h3>
+                <p>Berikut disajikan 10 provinsi di Indonesia dengan tingkat endemisitas malaria tertinggi.</p>
+                <div class="wrapper">
+                    <table class="table table-hover" id="maintable_endemik" border="0" style="display:table; width:100%;">
+                        <thead>
+                            <tr class="info">
+                                <td>No.</td>
+                                <td>Provinsi</td>
+                            </tr>
+                        </thead>
+                        <tbody id="body_endemik">
+<?php   if(mysqli_num_rows($query_endemik) > 0) { ?>
+<?php       $no = 1; ?>
+<?php       while($row = mysqli_fetch_array($query_endemik)) { ?>
+                            <tr class="danger">
+                                <td class="no"><?php echo $no; ?></td>
+                                <td class="provinsi"><?php echo $row['nama']; ?></td>
+                            </tr>
+<?php           $no++; ?>
+<?php       } ?>
+<?php   } else { ?>
+                            <tr class="danger">
+                                <td colspan="2">Data tidak tersedia</td>
+                            </tr>
+<?php   } ?>
+                        </tbody>
+                    </table>
+                </div>
             </div>
 
-            <div id="tab4" class="tabcontent">
-                <h3>Munich</h3>
-                <p>Munich is the capital of Germany.</p>
+            <div id="about" class="tabcontent">
+                <h3>Tentang Pengembang</h3>
+                <p>
+                    Puspitamarin merupakan <i>website</i> khusus portal malaria
+                    yang dikembangkan oleh Mahasiswa Tarumanagara, Martin Johnsons
+                    sebagai tugas akhir. Puspitamarin merupakan singkatan dari
+                    Pusat Penelitian Data Malaria Indonesia.
+                </p>
             </div>
 
         </div>

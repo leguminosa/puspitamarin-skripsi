@@ -17,8 +17,19 @@
             $usr = $post['usr'];
             $pw = $post['pw'];
 
-            $insert = "INSERT INTO pengguna VALUES (NULL, '$nama', '$jk', '$tmpt_lahir', '$tgl_lahir', '$domisili', '$usr', '$pw', 'user')";
-            mysqli_query($connection, $insert);
+            $validasi = "SELECT COUNT(*) AS 'Jumlah' FROM pengguna WHERE username ='$usr'";
+            $query = mysqli_query($connection, $validasi);
+            if(mysqli_num_rows($query) > 0) {
+                $row = mysqli_fetch_array($query);
+                if($row['Jumlah'] > 0) {
+                    $data->Status = 2;
+                } else {
+                    $insert = "INSERT INTO pengguna VALUES (NULL, '$nama', '$jk', '$tmpt_lahir', '$tgl_lahir', '$domisili', '$usr', '$pw', 'user')";
+                    mysqli_query($connection, $insert);
+                }
+            }
+        } else {
+            $data->Status = 1;
         }
         $data = json_encode($data, true);
         print_r($data);
