@@ -123,9 +123,9 @@ EOD;
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-lg-4 col-md-4 col-sm-4 col-xs-4 control-label">Username</label>
+                            <label class="col-lg-4 col-md-4 col-sm-4 col-xs-4 control-label">Username<span style="color:red;">*</span></label>
                             <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
-                                <input type="text" class="form-control" name="username" placeholder="Maksimal 15 karakter" value="<?php echo $sess['username']; ?>" required="" maxlength="15" />
+                                <input type="text" class="form-control" name="username" placeholder="Maksimal 15 karakter" value="<?php echo $sess['username']; ?>" required="" maxlength="15" readonly=""/>
                             </div>
                         </div>
                     </div>

@@ -68,6 +68,10 @@
                     Terdapat <?php echo $diagnosa; ?> diagnosa dari total <?php echo $pengunjung; ?> pengunjung yang terjadi dalam satu minggu terakhir.
                     <a href="laporan_pengunjung.php">Lihat disini</a>
                 </p>
+                <h3>Perbandingan Tes Lab</h3>
+                <p>
+                    <a href="laporan_hasil_tes.php">Lihat disini</a> untuk melihat daftar perbandingan tes laboratorium dengan uji dari <i>website</i> ini.
+                </p>
 <?php   } else if($sess && $sess['role'] == 'user') { ?>
                 <h3>Selamat datang</h3>
                 <p>Selamat datang di PUSPITAMARIN. Anda bisa mengecek apakah anda memiliki kemungkinan terjangkit malaria.</p>
